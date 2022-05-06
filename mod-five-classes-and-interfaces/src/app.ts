@@ -44,7 +44,7 @@ class AccountingDepartment extends Department {
   }
 }
 
-const it = new ITDepartment('d1', 'it');
+
 
 it.addEmployee('Max');
 it.addEmployee('Manu');
