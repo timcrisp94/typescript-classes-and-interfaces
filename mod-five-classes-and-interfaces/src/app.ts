@@ -18,15 +18,39 @@ class Department {
     console.log(this.employees.length);
     console.log(this.employees)
   }
+
+  
 }
 
-const accounting = new Department('d1', 'Accounting');
+class ITDepartment extends Department {
+  constructor(id: string, public admins: string[]) {
+    super(id, 'IT');
+    this.admins = admins;
+  }
+}
 
-accounting.addEmployee('Max');
-accounting.addEmployee('Manu');
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, 'Accounting');
+    
+  }
 
-accounting.describe();
-accounting.printEmployeeInformation();
+  addReport(text: string) {
+    this.reports.push(text)
+  }
+
+  printReports() {
+    console.log(this.reports)
+  }
+}
+
+const it = new ITDepartment('d1', 'it');
+
+it.addEmployee('Max');
+it.addEmployee('Manu');
+
+it.describe();
+it.printEmployeeInformation();
 
 // const accountingCopy = { name: 'DUMMY', describe: accounting.describe }
 
